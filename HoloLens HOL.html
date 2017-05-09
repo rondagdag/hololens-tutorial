@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HoloLens HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+<h1>Building HoloLens Apps with Unity</h1>
+<hr>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p><a href="https://developer.microsoft.com/en-us/windows/holographic">Windows Holographic</a> is a platform that enables software developers to build immersive 3D holographic applications that combine the real world with virtual worlds. Traditional virtual-reality (VR) platforms immerse users in a world that <em>replaces</em> the world around them. Windows Holographic is a <em>mixed reality</em> (MR) platform that injects three-dimensional computer-generated content into the world surrounding you and lets you interact with that content. Imagine learning how a jet engine works by walking around a virtual jet engine floating in the room in front of you, watching the parts rotate and gases flow through the turbine blades, and waving a hand to peel away layers to reveal what's inside. That is mixed reality. And it is just one example of the kinds of experiences that Windows Holographic makes possible.</p>
+<p>Microsoft's <a href="https://www.microsoft.com/microsoft-hololens/en-us">HoloLens</a>, pictured below, is a Windows Holographic device that represents the leading edge of mixed-reality hardware. This first-generation device is targeted towards software developers and MR enthusiasts. It is the world's first self-contained holographic computer, and it enables users to engage with digital content and interact with holograms. Worn like a set of glasses, it lets the real world come through while enhancing that world with holographic objects.</p>
+<p><a href="Images/hololens.png" target="_blank"><img src="Images/hololens.png" alt="Windows HoloLens Development Edition" style="max-width:100%;"></a></p>
+<p>There are multiple ways to build applications for Windows Holographic, including accessing the low-level APIs directly. Rather than write to the APIs directly, most developers choose to use <a href="https://unity3d.com/">Unity</a> instead. Unity abstracts the underlying APIs and provides a rich environment for building and testing holographic apps. Supplemented by a vibrant ecosystem that includes an <a href="https://www.assetstore.unity3d.com">Asset Store</a> and an active community of developers, Unity is also available in several editions, including a <a href="https://store.unity.com/products/unity-personal">Personal Edition</a> that you can use for free.</p>
+<p>In this lab, you will use Unity and Visual Studio to build a holographic application, experience mixed-reality first-hand, and see what it takes to build apps for Microsoft HoloLens. You can run the app in Microsoft's <a href="https://developer.microsoft.com/en-us/windows/holographic/using_the_hololens_emulator">HoloLens emulator</a>, or run it on a real device if you have access to a HoloLens. Obviously, the latter provides a higher-fidelity and more immersive experience.</p>
+<p><a name="Objectives"></a></p>
+<h3>Objectives</h3>
+<p>In this hands-on lab, you will learn how to:</p>
+<ul>
+<li>Configure HoloLens for application development</li>
+<li>Install and configure a development environment for building holographic applications</li>
+<li>Create a Unity project and configure it to support Windows Holographic</li>
+<li>Add objects to a scene and attach scripts to make them interactive</li>
+<li>Deploy to a HoloLens and make the scene come alive</li>
+</ul>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following are required to complete this hands-on lab:</p>
+<ul>
+<li>A PC with 64-bit Windows 10 (Home Edition is not supported) and a 64-bit CPU with at least 4 cores</li>
+<li>At least 20 GB of available disk storage</li>
+<li>At least 8 GB of RAM</li>
+<li>BIOS features (must be enabled): Hardware Virtualization, SLAT, DEP</li>
+<li>DirectX11 or later</li>
+<li>WDDM 1.2 driver or later</li>
+<li>Hyper-V enabled in Windows</li>
+<li><a href="https://www.visualstudio.com/vs/">Visual Studio 2015</a> with the Windows 10 SDK installed</li>
+</ul>
+<p>In addition, a <a href="https://www.microsoft.com/microsoft-hololens/development-edition">HoloLens Development Edition visor</a> is recommended by not required.</p>
+<p><a name="Recommendations"></a></p>
+<h3>Recommendations</h3>
+<p>While developing applications for the Windows Holographic platform is relatively straightforward, there are some pitfalls you should avoid. The following recommendations can help make the development experience more enjoyable:</p>
+<ul>
+<li>Use a modern PC or laptop for holographic application development. Unity takes a designer-centric approach, and is a fairly demanding environment (just as your favorite video editing software is likely much more performance-intensive than your favorite code editor).</li>
+<li>Run the latest version of Windows 10 and the Windows SDK, but avoid pre-release versions of Windows.</li>
+<li>Do not try to develop for HoloLens from within a virtual machine (Hyper-V or otherwise).</li>
+<li>Be sure to have a decent video graphics adapter in your system, with the latest stable display drivers installed. Video driver glitches are one of the most common causes of problems encountered when building holographic apps.</li>
+<li>If you choose to edit code in Visual Studio, be sure to keep it updated with the latest patches, and use as few third-party extensions as possible.</li>
+<li>When possible, test your applications on real HoloLens hardware. The emulator is useful, but performs very differently from a real device and gestures are not very natural on the emulator.</li>
+<li>Even if you do not plan to use the HoloLens emulator, it is recommended that you install it. The installer for the emulator includes DirectX project templates for Visual Studio that can be very useful.</li>
+</ul>
+<hr>
+<p><a name="Exercises"></a></p>
+<h2>Exercises</h2>
+<p>This hands-on lab includes the following exercises:</p>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Set up your development environment</a></li>
+<li><a href="#Exercise2">Exercise 2: Configure your HoloLens</a></li>
+<li><a href="#Exercise3">Exercise 3: Build your first holographic application with Unity</a></li>
+<li><a href="#Exercise4">Exercise 4: Use HoloToolkit to expedite holographic development</a></li>
+<li><a href="#Exercise5">Exercise 5: Compile in Visual Studio and deploy to a device</a></li>
+<li><a href="#Exercise6">Exercise 6: Add an interactive hologram</a></li>
+</ul>
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+<p><a name="Exercise1"></a></p>
+<h2>Exercise 1: Set up your development environment</h2>
+<p>In this exercise, you will prepare your development environment so you can build applications for the Windows Holographic platform with Unity.</p>
+<ol>
+<li>
+<p>If you haven't already, download and install the latest release of Visual Studio from <a href="https://www.visualstudio.com/vs/">https://www.visualstudio.com/vs/</a>. Any version will do, even the free Community Edition. Be sure to install the Universal Windows App Development Tools, since HoloLens apps are Universal Windows Platform (UWP) apps.</p>
+<p><a href="Images/vs_install.png" target="_blank"><img src="Images/vs_install.png" alt="Installing UWP tools when installing Visual Studio" style="max-width:100%;"></a></p>
+<p><em>Installing UWP tools when installing Visual Studio</em></p>
+</li>
+<li>
+<p>Launch Visual Studio and select <strong>Options...</strong> from the <strong>Tools</strong> menu. Under the General settings for NuGet Package Manager, ensure that <strong>Allow NuGet to download missing packages</strong> and <strong>Automatically check for missing packages during build in Visual Studio</strong> are both checked. Your Unity builds will fail later if these features are not enabled.</p>
+<p><a href="Images/nuget.jpg" target="_blank"><img src="Images/nuget.jpg" alt="Enabling NuGet options" style="max-width:100%;"></a></p>
+<p><em>Enabling NuGet options</em></p>
+</li>
+<li>
+<p>Download and install the latest version of the HoloLens emulator package. You will find a link to the current release in the <a href="https://developer.microsoft.com/en-us/windows/holographic/install_the_tools#installation_checklist">Installation checklist</a> on Microsoft's HoloLens developer portal.</p>
+<blockquote>
+<p>The emulator isn't strictly necessary if you have a HoloLens available, but the installation package also comes with additional app templates. Also, the emulator allows you to simulate a specific room interior (captured from an actual device beforehand), which can be quite useful in certain scenarios.</p>
+</blockquote>
+<p><a href="Images/emulator_install.jpg" target="_blank"><img src="Images/emulator_install.jpg" alt="Installing the HoloLens emulator" style="max-width:100%;"></a></p>
+<p><em>Installing the HoloLens emulator</em></p>
+</li>
+<li>
+<p>Download and install the latest release of Unity from <a href="https://unity3d.com/unity">https://unity3d.com/unity</a>. The free Personal Edition will work just fine while you are learning.</p>
+<blockquote>
+<p>If you have worked with Unity and HoloLens previously, you may recall needing to download a special build. HoloLens support is now fully integrated into Unity, so you no longer need to do that. The "normal" release version is sufficient now.</p>
+</blockquote>
+</li>
+<li>
+<p>You must have a Unity account to sign in to Unity. Go to <a href="https://id.unity.com/en/conversations/41750435-f67a-4881-a6e5-5dec3c05f731019f">https://id.unity.com/en/conversations/41750435-f67a-4881-a6e5-5dec3c05f731019f</a> and create an account if you do not already have one.</p>
+</li>
+</ol>
+<p>Your development environment is now configured. If you have a HoloLens device, proceed to <a href="#Exercise2">Exercise 2</a>. Otherwise, skip to <a href="#Exercise3">Exercise 3</a>.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Configure your HoloLens</h2>
+<p>In this exercise, you will configure your HoloLens and pair it with your PC. It is assumed that you are familiar with basic HoloLens gestures such as "blooming" to open the Windows Start menu and "air tapping" to select items on the screen in front of you. If you aren't familiar with these gestures, read up on them at <a href="https://support.microsoft.com/en-us/help/12644/hololens-use-gestures">https://support.microsoft.com/en-us/help/12644/hololens-use-gestures</a>.</p>
+<ol>
+<li>
+<p>Don your HoloLens visor and power it on.</p>
+</li>
+<li>
+<p>On the HoloLens, log in to Windows. Launch the Settings app, and select <strong>Update &amp; Security</strong>.</p>
+<p><a href="Images/settings.jpg" target="_blank"><img src="Images/settings.jpg" alt="Opening Update &amp; Security settings" style="max-width:100%;"></a></p>
+<p><em>Opening Update &amp; Security settings</em></p>
+</li>
+<li>
+<p>Select <strong>For developers</strong>, and make sure <strong>Developer mode</strong> is toggled on. Then scroll to the bottom of the page and make sure <strong>Enable remote management of this device from a browser</strong> is turned on, too. This will enable you to deploy apps to your HoloLens as well as activate a built-in Web portal on the device.</p>
+<p><a href="Images/devmode.jpg" target="_blank"><img src="Images/devmode.jpg" alt="Enabling developer mode on the device" style="max-width:100%;"></a></p>
+<p><em>Enabling developer mode on the device</em></p>
+</li>
+<li>
+<p>Next, you need to create a login for your device. Connect the HoloLens to your Windows PC using a USB cable. Then browse to <a href="http://127.0.0.1:10080">http://127.0.0.1:10080</a> on your PC.</p>
+</li>
+<li>
+<p>When presented with a setup page that asks you to request a pin, click the <strong>Request pin</strong> button.</p>
+<blockquote>
+<p>If you've previously paired your HoloLens to your PC, you will instead be prompted for a user name and password. Once logged in, you can add credentials by clicking the Security icon in the upper right corner of the page.</p>
+</blockquote>
+<p><a href="Images/credential_reset.jpg" target="_blank"><img src="Images/credential_reset.jpg" alt="Requesting a PIN" style="max-width:100%;"></a></p>
+<p><em>Requesting a PIN</em></p>
+</li>
+<li>
+<p>On the HoloLens display, you should now see a seven-digit PIN code.</p>
+<p><a href="Images/pin.jpg" target="_blank"><img src="Images/pin.jpg" alt="The requested PIN" style="max-width:100%;"></a></p>
+<p><em>The requested PIN</em></p>
+</li>
+<li>
+<p>Enter this PIN code on your PC, along with a user name and password. Then click the <strong>Pair</strong> button. The user name and password you enter will be used to access the device portal when debugging apps, so it is important not to forget them. The only way to recover them is by performing a full reset of the HoloLens.</p>
+<p><a href="Images/pairing.jpg" target="_blank"><img src="Images/pairing.jpg" alt="Pairing the HoloLens with your PC" style="max-width:100%;"></a></p>
+<p><em>Pairing the HoloLens with your PC</em></p>
+</li>
+<li>
+<p>Spend a few minutes exploring the device portal. You will find a number of useful features here, including diagnostic information. One page that is especially useful is the "Mixed Reality Capture" page, which allows you to capture images and videos depicting what the person wearing the HoloLens is  seeing. You can even view a live stream of their video and audio (delayed by a second or so).</p>
+<blockquote>
+<p>You can access the device portal via <a href="http://127.0.0.1:10080">http://127.0.0.1:10080</a> while connected via USB, but you can also connect via Wi-Fi. After joining a Wi-Fi network on the HoloLens, find your device's IP Address in the Network Settings (or ask Cortana <em>"Hey Cortana, what is my IP address?"</em>). As long as your Windows PC is on the same Wi-Fi network, you can access the portal through that IP address.</p>
+</blockquote>
+</li>
+</ol>
+<p>With the HoloLens hardware configured, you are now ready to start building an application.</p>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Build your first holographic application with Unity</h2>
+<p>In this exercise, you will create a new Unity project and configure it to target the Windows Holographic platform. In the next exercise, you will learn how to automate much of this process. Doing it manually the first time helps you understand what's happening and why.</p>
+<ol>
+<li>
+<p>Launch Unity and sign in with your Unity Account.</p>
+</li>
+<li>
+<p>Click <strong>+ New</strong> to create a new project. Enter any project name that you like. Make sure <strong>3D</strong> is selected, and then click the <strong>Create project</strong> button.</p>
+<p><a href="Images/new_project.jpg" target="_blank"><img src="Images/new_project.jpg" alt="Creating a new Unity project" style="max-width:100%;"></a></p>
+<p><em>Creating a new Unity project</em></p>
+</li>
+<li>
+<p>Every holographic application needs a viewpoint to represent the person who is wearing the HoloLens visor. This is handled with a <em>Camera</em> object. Your empty project should have a camera, but if it doesn't, then you will need  to create one.</p>
+<p>In the Hierarchy panel, expand the top-level node (it should be named "Untitled"). <strong>If there is already an object there named "Main Camera," then proceed to the next step.</strong> Otherwise, select <strong>Camera</strong> from the <strong>GameObject</strong> menu to create a new camera.</p>
+<p><a href="Images/new_camera.jpg" target="_blank"><img src="Images/new_camera.jpg" alt="Creating a new camera" style="max-width:100%;"></a></p>
+<p><em>Creating a new camera</em></p>
+</li>
+<li>
+<p>The camera must be configured correctly for the holographic application to function properly. Go to the Inspector tab docked to the right side of the Unity IDE. In the <strong>Tag</strong> drop-down, select <strong>MainCamera</strong>.</p>
+<p><a href="Images/maincamera.jpg" target="_blank"><img src="Images/maincamera.jpg" alt="Selecting the main camera" style="max-width:100%;"></a></p>
+<p><em>Selecting the main camera</em></p>
+</li>
+<li>
+<p>In the <strong>Clear Flags</strong> drop-down, select <strong>Solid Color</strong>.</p>
+<p><a href="Images/clear_flags.jpg" target="_blank"><img src="Images/clear_flags.jpg" alt="Configuring the Clear Flags" style="max-width:100%;"></a></p>
+<p><em>Configuring the Clear Flags</em></p>
+</li>
+<li>
+<p>Change <strong>Background</strong> to solid black using the Color popup.</p>
+<p><a href="Images/black_bg.jpg" target="_blank"><img src="Images/black_bg.jpg" alt="Setting the camera background" style="max-width:100%;"></a></p>
+<p><em>Setting the camera background</em></p>
+</li>
+<li>
+<p>Click the gear icon in the upper-right corner of the panel, and select <strong>Reset</strong> from the context menu to reset the camera position 0, 0, 0.</p>
+<blockquote>
+<p>It is a good habit to <strong>always</strong> reset the position of any new elements added to your scene so that each has a known starting position.</p>
+</blockquote>
+<p><a href="Images/reset.jpg" target="_blank"><img src="Images/reset.jpg" alt="Resetting the camera position" style="max-width:100%;"></a></p>
+<p><em>Resetting the camera position</em></p>
+</li>
+<li>
+<p>Lastly, set <strong>Near Clipping Plane</strong> to <strong>0.85</strong> meters rather than the default of 0.3. This value determines how close you can get to an object before it gets clipped out of view. (Otherwise, you would see the "insides" of objects if you walked through them).</p>
+<p><a href="Images/near_clip.jpg" target="_blank"><img src="Images/near_clip.jpg" alt="Setting the distance to the near clipping plane" style="max-width:100%;"></a></p>
+<p><em>Setting the distance to the near clipping plane</em></p>
+</li>
+<li>
+<p>With the main camera properly configured, you now need to configure the project's build settings. Select <strong>Build Settings...</strong> from the <strong>File</strong> menu.</p>
+<p><a href="Images/build_settings.jpg" target="_blank"><img src="Images/build_settings.jpg" alt="Accessing build settings" style="max-width:100%;"></a></p>
+<p><em>Accessing build settings</em></p>
+</li>
+<li>
+<p>In the list of platforms, select <strong>Windows Store</strong> and then click the <strong>Switch Platform</strong> button.</p>
+<p><a href="Images/switch_platforms.jpg" target="_blank"><img src="Images/switch_platforms.jpg" alt="Switching build platforms" style="max-width:100%;"></a></p>
+<p><em>Switching build platforms</em></p>
+</li>
+<li>
+<p>With <strong>Windows Store</strong> still selected in the list, make the following changes to the settings in the panel next to it:</p>
+<ul>
+<li>Set <strong>SDK</strong> to <strong>Universal 10</strong></li>
+<li>Set <strong>UWP Build Type</strong> to <strong>D3D</strong></li>
+<li>Check the <strong>Unity C# Projects</strong> box (this enables Visual Studio editing)</li>
+</ul>
+<p><a href="Images/windows_store_settings.jpg" target="_blank"><img src="Images/windows_store_settings.jpg" alt="Changing platform settings" style="max-width:100%;"></a></p>
+<p><em>Changing platform settings</em></p>
+</li>
+<li>
+<p>Click the <strong>Player Settings...</strong> button under the list of platforms. This will open a new region within the Inspector panel. Click <strong>Publishing Settings</strong> in the Inspector panel to display the project's publishing settings.</p>
+<p><a href="Images/publisher.jpg" target="_blank"><img src="Images/publisher.jpg" alt="Viewing publishing settings" style="max-width:100%;"></a></p>
+<p><em>Viewing publishing settings</em></p>
+</li>
+<li>
+<p>Scroll to the end of the Publishing Settings pane, where you will find a Capabilities list. This is where you declare any capabilities that your application requires. <strong>SpatialPerception</strong> and <strong>Microphone</strong> are common requirements, so check those. Also check <strong>InternetClient</strong> so you can run the app in the HoloLens emulator.</p>
+<p><a href="Images/capabilities.jpg" target="_blank"><img src="Images/capabilities.jpg" alt="Specifying the app's capabilities" style="max-width:100%;"></a></p>
+<p><em>Specifying the app's capabilities</em></p>
+</li>
+<li>
+<p>Find the Other Settings pane in the Inspector panel and expand it. Then check the <strong>Virtual Reality Supported</strong> box. Upon selecting this option, a list of Virtual Reality SDKs should appear below. Verify that <strong>Windows Holographic</strong> appears in that list. (It will likely be the only entry in the list.)</p>
+<p><a href="Images/other.jpg" target="_blank"><img src="Images/other.jpg" alt="Specifying other settings" style="max-width:100%;"></a></p>
+<p><em>Specifying other settings</em></p>
+</li>
+<li>
+<p>From the <strong>Edit</strong> menu, select <strong>Project Settings</strong> and then <strong>Quality</strong>. This will open a new region named "QualitySettings" within the Inspector panel.</p>
+<p><a href="Images/quality.jpg" target="_blank"><img src="Images/quality.jpg" alt="Accessing quality settings" style="max-width:100%;"></a></p>
+<p><em>Accessing quality settings</em></p>
+</li>
+<li>
+<p>In this region, there is a matrix of options that you might be tempted to select. <strong>Do not select anything.</strong> Instead, notice that the header row in the matrix contains small platform icons. The green box is a miniature version of the Windows Store logo; it is usually the center column of the matrix. At the bottom of each column is a small triangle. Click the triangle under the Windows Store column, and then select <strong>Fastest</strong> from the ensuing menu.</p>
+<p><a href="Images/quality_level.jpg" target="_blank"><img src="Images/quality_level.jpg" alt="Setting the quality level" style="max-width:100%;"></a></p>
+<p><em>Setting the quality level</em></p>
+</li>
+<li>
+<p>You should now be able to add content to your application in Unity, along with any scripts required for interaction. Save the open scene (don't forget to add the newly saved scene to the "Build Settings" dialog), and then build the resulting project.</p>
+</li>
+</ol>
+<p>Congratulations! You've created and built a Unity project that supports the Windows Holographic platform. Of course, there's no content in this project yet, and there is a better way to get started on a new project without having to manually apply all these settings. Let's learn how to automate these steps by using HoloToolkit.</p>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Use HoloToolkit to expedite holographic development</h2>
+<p>In this exercise, you will create a new project and use HoloToolkit to streamline the project setup.</p>
+<ol>
+<li>
+<p>Download or clone the HoloToolkit repository from GitHub to your local Windows PC. The repository can be found at <a href="https://github.com/Microsoft/HoloToolkit-Unity">https://github.com/Microsoft/HoloToolkit-Unity</a>. This package is updated frequently, and you want to use the latest and greatest.</p>
+</li>
+<li>
+<p>Open the downloaded HoloToolkit project folder in Unity.</p>
+</li>
+<li>
+<p>In the Project pane, select the "Assets" folder at the root of the project. Right-click the folder and select <strong>Export Package...</strong>. Be sure to export the entire "Assets" folder, including dependencies.</p>
+<p><a href="Images/export.jpg" target="_blank"><img src="Images/export.jpg" alt="Exporting project assets" style="max-width:100%;"></a></p>
+<p><em>Exporting project assets</em></p>
+</li>
+<li>
+<p>Enter a name and location for the exported package file. The package can be reused in other projects, so it is a good idea to save it outside of your project folders. It is also advisable to include the current date in the package's file name so you are always aware of how old the package content is.</p>
+</li>
+<li>
+<p>Click <strong>+ New</strong> and create a new Unity project. From the <strong>Assets</strong> menu, select <strong>Import Package</strong> and then <strong>Custom Package...</strong>.</p>
+<p><a href="Images/import.jpg" target="_blank"><img src="Images/import.jpg" alt="Importing Package" style="max-width:100%;"></a></p>
+<p><em>Importing HoloToolkit</em></p>
+</li>
+<li>
+<p>Select the package file that you exported in Step 3, and click the <strong>Open...</strong> button.</p>
+</li>
+<li>
+<p>Unity gives you the option of selecting which assets to import. In this case, you can unselect the "HoloToolkit-Examples" subtree to reduce the size of the code base. Once you've specified which assets to include, click the <strong>Import</strong> button.</p>
+<blockquote>
+<p>This imports a number of useful assets, some of which you will use in Exercise 6. It also adds a new top-level menu item to the Unity editor that provides quick access to some frequently performed actions. You will make use of these shortly.</p>
+</blockquote>
+</li>
+<li>
+<p>Find the default Main Camera in the project's starting scene. Right-click it and select <strong>Delete</strong> to delete it.</p>
+<p><a href="Images/delete_camera.jpg" target="_blank"><img src="Images/delete_camera.jpg" alt="Deleting the default main camera" style="max-width:100%;"></a></p>
+<p><em>Deleting the default main camera</em></p>
+</li>
+<li>
+<p>In the Project panel, expand the "Assets" folder to expose the subfolder named "HoloToolkit." Expand again to find the "Input" and "Prefabs" folders. Then drag <strong>HoloLensCamera.prefab</strong> and drop it over the main scene node in the Hierarchy treeview. This camera is preconfigured to function properly in a HoloLens application. Remember to <strong>reset the camera after placing it</strong>. (See Exercise 3, Step 7 to remind yourself how to do it.)</p>
+<p><a href="Images/camera_prefab.jpg" target="_blank"><img src="Images/camera_prefab.jpg" alt="Adding Prefab main camera" style="max-width:100%;"></a></p>
+<p><em>Adding a prefab main camera</em></p>
+</li>
+<li>
+<p>From the <strong>HoloToolkit</strong> menu, select <strong>Configure</strong>, and then select <strong>Apply HoloLens Scene Settings</strong>.</p>
+<p><a href="Images/macros.jpg" target="_blank"><img src="Images/macros.jpg" alt="Configuring HoloToolkit" style="max-width:100%;"></a></p>
+<p><em>Configuring HoloToolkit</em></p>
+</li>
+<li>
+<p>Repeat this sequence, but this time select <strong>Apply HoloLens Project Settings</strong> (you may be prompted to reload the project).</p>
+</li>
+<li>
+<p>Repeat one more time, but this time select <strong>Apply HoloLens Capability Settings</strong>.</p>
+<blockquote>
+<p>You may also need to manually enable the <strong>Unity C# Projects</strong> build setting. These menu commands don't seem to always set this option properly.</p>
+</blockquote>
+</li>
+<li>
+<p>From the <strong>HoloToolkit</strong> menu, select <strong>Build Window</strong>. From here, you can directly export a Visual Studio solution and also launch Visual Studio with the exported solution. It is also possible to compile an APPX package and deploy it directly from this dialog, but this is not as common as compiling and deploying from Visual Studio.</p>
+</li>
+<li>
+<p>Click the <strong>Build Visual Studio SLN</strong> button to export the Unity project to Visual Studio.</p>
+<blockquote>
+<p>You only need to click the <strong>Build Visual Studio SLN</strong> button when non-script assets have changed. Script changes are automatically kept in sync between Visual Studio and Unity.</p>
+</blockquote>
+</li>
+<li>
+<p>Click the <strong>Open SLN</strong> button to launch Visual Studio with the exported solution.</p>
+</li>
+</ol>
+<p>You now know how to configure a holographic project manually, and how to expedite the process with HoloToolkit. The latter provides some additional benefit in the form of prefabricated components that speed the development process. With the project set up, it is now time to build it so you can see it come to life.</p>
+<p><a name="Exercise5"></a></p>
+<h2>Exercise 5: Compile in Visual Studio and deploy to a device</h2>
+<p>In the previous two exercises, you learned two different ways to configure a new holographic project in Unity. In this exercise, you will learn how to use Visual Studio to compile the apps that you create and run them on your HoloLens.</p>
+<ol>
+<li>
+<p>In Unity, open either of the projects you created in the previous exercises.</p>
+<blockquote>
+<p>If you opened the HoloToolkit project, then you can use HoloTookit's <strong>Build Window</strong> command in place of Steps 2 through 4.</p>
+</blockquote>
+</li>
+<li>
+<p>Select <strong>Build Settings...</strong> from the <strong>File</strong> menu.</p>
+<p><a href="Images/build_settings.jpg" target="_blank"><img src="Images/build_settings.jpg" alt="Opening build settings" style="max-width:100%;"></a></p>
+<p><em>Opening build settings</em></p>
+</li>
+<li>
+<p>Click the <strong>Build</strong> button. You will be prompted to select the output folder in which Unity will place a Visual Studio solution. You should create a folder under your project for this.</p>
+<blockquote>
+<p>Unity generates two Visual Studio solution files: one in the main project folder and one in the output folder. Ignore the <strong>.sln</strong> file in the main project folder.</p>
+</blockquote>
+</li>
+<li>
+<p>Start Visual Studio and open the <strong>.sln</strong> file created in the output folder in the previous step.</p>
+<blockquote>
+<p>This solution contain three projects. You can generally ignore the one named "Assembly-CSharp-firstpass." The project named "Assembly-CSharp" contains the script behaviors that are attached to elements in the Unity project, and the third one is the project for the app itself.</p>
+</blockquote>
+</li>
+<li>
+<p>Verify that your main application project — the one with the same name as your Unity project — is set as the startup project in Visual Studio. If it isn't, right-click the project and select <strong>Set as Startup Project</strong> from the context menu.</p>
+</li>
+<li>
+<p>Verify that Visual Studio is set to produce a <strong>Debug</strong> build for the <strong>x86</strong> platform with <strong>Device</strong> as the target.</p>
+<p><a href="Images/build_config.jpg" target="_blank"><img src="Images/build_config.jpg" alt="Setting the Visual Studio build configuration" style="max-width:100%;"></a></p>
+<p><em>Setting the Visual Studio build configuration</em></p>
+<blockquote>
+<p>Selecting <strong>Device</strong> assumes that your HoloLens is connected via USB. If you wish to deploy and debug over WiFi, select <strong>Remote Machine</strong> instead and input the IP address of your HoloLens.</p>
+</blockquote>
+</li>
+<li>
+<p>Press <strong>F5</strong> or select <strong>Start Debugging</strong> from the <strong>Debug</strong> menu to compile, deploy, and launch the application.</p>
+<p>If this is the first time deploying to this HoloLens, Visual Studio will prompt you for a PIN code. You can obtain this PIN from the HoloLens device, from the settings page where you enabled Developer mode in <a href="#Exercise2">Exercise 2</a>. Click the <strong>Pair</strong> button to generate a PIN code for Visual Studio.</p>
+<p><a href="Images/pairing_vs.jpg" target="_blank"><img src="Images/pairing_vs.jpg" alt="Pairing with Visual Studio" style="max-width:100%;"></a></p>
+<p><em>Pairing with Visual Studio</em></p>
+</li>
+<li>
+<p>If everything goes well, Visual Studio will compile and deploy the application and then launch it. Because this application has no content yet, the only indication you will get from the HoloLens will be the Unity splash logo that appears because you are using the free edition of Unity.</p>
+<p><a href="Images/unity_logo.jpg" target="_blank"><img src="Images/unity_logo.jpg" alt="The app running on a HoloLens" style="max-width:100%;"></a></p>
+<p><em>The app running on a HoloLens</em></p>
+<p>If you encounter build errors, first ensure that automatic NuGet package restore is enabled in Visual Studio (see Exercise 1, Step 2). You can also try selecting <strong>Clean All</strong> from Visual Studio's <strong>Build</strong> menu, and then building the "Assembly-CSharp-firstpass" project by itself, followed by the "Assembly-CShar" project, and then the main application project. Sometimes, the build dependencies fail to resolve properly and manually rebuilding this way resolves the problem.</p>
+<p>If your build is successful but you don't see anything in the HoloLens or in the emulator, double-check the configuration steps in <a href="#Exercise2">Exercise 2</a> or <a href="#Exercise3">Exercise 3</a>. Just one missing setting, such as failing to enable Holographic SDK support, can prevent the app from working.</p>
+</li>
+</ol>
+<p>With a starter holographic project in place, you are now prepared to move on to the final exercise in this lab and add an interactive hologram to the scene.</p>
+<p><a name="Exercise6"></a></p>
+<h2>Exercise 6: Add an interactive hologram</h2>
+<p>One of the strengths of the Unity platform is that it offers a large array of pre-built models and artwork that you can leverage within your projects. These resources can be found in the Unity Asset Store and loaded directly from the Unity environment. Many of these assets are available for a modest price, but there are also many available for free. In the final exercise, you will download a fountain hologram from the Asset Store, attach a particle system, and write code to allow users to click or tap the fountain to turn a water spout on and off.</p>
+<ol>
+<li>
+<p>In Unity, search the Asset Store for free "fountain" models. Find the one named "Fountain Prop" and click the <strong>Download</strong> button to download it to your project.</p>
+<p><a href="Images/fountain.jpg" target="_blank"><img src="Images/fountain.jpg" alt="Downloading the &quot;Fountain Prop&quot; model" style="max-width:100%;"></a></p>
+<p><em>Downloading the "Fountain Prop" model</em></p>
+</li>
+<li>
+<p>After the download completes, you will see a new folder named "Stone Fountain" in the "Assets" folder in Project Explorer. In this folder, you should see a prefab item named "fountain_LOD0." Drag the item over and add it to the scene hierarchy to add an instance of the fountain model.</p>
+</li>
+<li>
+<p>In the Transform section of the Inspector panel, set <strong>X</strong>, <strong>Y</strong>, and <strong>Z Position</strong> to <strong>0.0</strong> to position the fountain in the center of the scene. Then set <strong>X</strong>, <strong>Y</strong>, and <strong>Z Scale</strong> to <strong>0.5</strong> to scale the model down and make it easier to work with.</p>
+</li>
+<li>
+<p>The center of the scene isn't necessarily the best spot for the fountain, since you would literally be standing inside of it. So drag the fountain until the <strong>Y</strong> position is roughly <strong>-1.5</strong> and the <strong>Z</strong> position is roughly <strong>2.75</strong>. This will place the object slightly in front of the viewer and slightly below eye level.</p>
+<p><a href="Images/fountain_placement.jpg" target="_blank"><img src="Images/fountain_placement.jpg" alt="Repositioning the fountain" style="max-width:100%;"></a></p>
+<p><em>Repositioning the fountain</em></p>
+</li>
+<li>
+<p>In order to interact with the fountain, you need to add components to handle <a href="https://developer.microsoft.com/en-us/windows/holographic/gaze">gaze</a> in order to provide visual feedback when the user "gazes" at the fountain. Gaze is an important form of input in Windows Holographic because it tells you where the user is looking and helps you determine their intent. Luckily, HoloToolkit comes with some prefabs for this. Find the "DefaultCursor" prefab in the "Assets\HoloToolkit\Input\Prefabs" folder, and add it to the scene.</p>
+</li>
+<li>
+<p>The "DefaultCursor" prefab relies on there being a <em>GazeManager</em> in the scene (among other things). <em>GazeManager</em> is a singleton object that keeps track of where the Gaze cursor is pointing. The project currently lacks a <em>GazeManager</em>, but you can add one by adding an "InputManager" prefab, which contains a <em>GazeManager</em> subcomponent. Find the "InputManager" prefab in the "Assets\HoloToolkit\Input\Prefabs" folder and add it to the object hierarchy.</p>
+<p><a href="Images/input_manager.jpg" target="_blank"><img src="Images/input_manager.jpg" alt="Adding the InputManager and subcomponents" style="max-width:100%;"></a></p>
+<p><em>Adding the InputManager and subcomponents</em></p>
+</li>
+<li>
+<p>When the fountain is clicked, you will turn on a particle system to simulate water shooting from the top of the fountain. To do this, you need to write code to respond to click events.</p>
+<p>In Unity, such code is encapsulated in <em>scripts</em> and attached to game objects. These scripts are C# files that are linked to one or more objects in Unity, and later edited and compiled in Visual Studio (or MonoDevelop for non-HoloLens projects where Visual Studio integration is not enabled). Unity scripts are simple in nature. Each contains a class that is instantiated as a child component of the game object that the script is attached to. These classes inherit from the <em>MonoBehavior</em> base class, and they are allowed to communicate with other game objects as well as call Unity APIs. In this case, the script should be attached to the fountain object.</p>
+<p>To create a script, click the fountain model in the scene's object hierarchy. In the Inspector panel, scroll to the bottom, click the <strong>Add Component</strong> button, and select <strong>New Script</strong>. Type "Fountain" for the script name, and then click the <strong>Create and Add</strong> button to create the script and attach it to the fountain.</p>
+<p><a href="Images/fountain_script.jpg" target="_blank"><img src="Images/fountain_script.jpg" alt="Adding a script to the fountain" style="max-width:100%;"></a></p>
+<p><em>Adding a script to the fountain</em></p>
+<p>If you now look in your project's "Assets" folder, you will find a script file named <strong>Fountain.cs</strong>. You can double-click the file to open it in Visual Studio, but if you do, you will find that Intellisense doesn't work. The fix is to re-export the project files and open the exported solution in Visual Studio.</p>
+<p>Keep in mind that as you edit script files in Visual Studio, your code changes are applied to the original script files that Unity is using. This means that you only need to re-export the solution from Unity when the assets change (for example, when new objects are added to the scene) or when you create a new script. You do <strong>not</strong> need to re-export the solution when you modify an existing script.</p>
+<blockquote>
+<p>You can organize your scripts and assets into any folder structure you prefer. Unity will keep track of where you move them to, and your objects will retain their links to the scripts even after you've reorganized them.</p>
+</blockquote>
+</li>
+<li>
+<p>Export the solution from Unity, and open it in Visual Studio.</p>
+</li>
+<li>
+<p>The template for new scripts provides the scaffolding for the <em>MonoBehavior</em>-based class. By default, Unity includes <code>Start</code> and <code>Update</code> methods in the derived class. The <code>Start</code> method is where you place code that needs to run each time an instance of the associated game object is created. The <code>Update</code> method is called much more often — once per frame. To respond to clicks (technically, <em>taps</em>) you implement the <code>IInputClickHandler</code> interface and its lone method, <code>OnInputClicked</code>.</p>
+<p>Open the <strong>Fountain.cs</strong> file containing the script for the fountain and replace its contents with the following code:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">System</span>;
+<span class="pl-k">using</span> <span class="pl-en">UnityEngine</span>;
+<span class="pl-k">using</span> <span class="pl-en">HoloToolkit.Unity.InputModule</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Fountain</span> : <span class="pl-en">MonoBehaviour</span>, <span class="pl-en">IInputClickHandler</span>
+{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">OnInputClicked</span>(<span class="pl-en">InputEventData</span> <span class="pl-smi">eventData</span>)
+    {
+        <span class="pl-k">var</span> <span class="pl-en">gaze </span>= InputManager.Instance.GetComponent&lt;GazeManager&gt;();
+        <span class="pl-k">if</span> (gaze.IsGazingAtObject &amp;&amp; gaze.HitObject == gameObject)
+        {
+            Debug.Log(gameObject.name + <span class="pl-s"><span class="pl-pds">"</span> clicked<span class="pl-pds">"</span></span>);
+        }
+    }
+
+    <span class="pl-c">// Use this for initialization</span>
+    <span class="pl-k">void</span> <span class="pl-en">Start</span> ()
+    {
+    }
+
+    <span class="pl-c">// Update is called once per frame</span>
+    <span class="pl-k">void</span> <span class="pl-en">Update</span> ()
+    {
+    }
+}</pre></div>
+</li>
+<li>
+<p>Build the application and run it on your device or in the emulator. The fountain should be visible, and the Gaze cursor should be functional. However, you will notice if you click the fountain, the script doesn't register clicks in the debug output window. Terminate the app in Visual Studio and return to Unity.</p>
+</li>
+<li>
+<p>In order for gestures (and the built-in physics engine) to recognize and interact with objects, those objects need to have a <em>collider</em> attached to them. Some objects come with an attached collider (the Cube is one such example), but the fountain that you imported does not.</p>
+<p>Select the fountain object, click the <strong>Add Component</strong> button in the Inspector panel, and select <strong>Mesh Collider</strong> in the <strong>Physics</strong> submenu. This will allow Unity to recognize the complex mesh of the fountain as a collision target.</p>
+<p><a href="Images/mesh.jpg" target="_blank"><img src="Images/mesh.jpg" alt="Adding a mesh collider to the fountain" style="max-width:100%;"></a></p>
+<p><em>Adding a mesh collider to the fountain</em></p>
+</li>
+<li>
+<p>Check the <strong>Convex</strong> box in the mesh collider so the particle system can use the same collider.</p>
+<p><a href="Images/collider.jpg" target="_blank"><img src="Images/collider.jpg" alt="Configuring the mesh collider" style="max-width:100%;"></a></p>
+<p><em>Configuring the mesh collider</em></p>
+</li>
+<li>
+<p>Save the project, export to Visual Studio, and then build and run the application again. Confirm that tapping the fountain now registers clicks in the debug output window.</p>
+</li>
+<li>
+<p>Now it's time to add a particle system to shoot water from the top of the fountain. To begin, return to Unity, select the fountain object, and then right-click it and select <strong>Create Empty</strong> from the ensuing menu. This will create an empty game object as a child element of the fountain object. Change the <strong>Z Position</strong> of the new game object to <strong>2.98</strong> or thereabouts so that it is positioned just above the top of the fountain.</p>
+<p><a href="Images/water.jpg" target="_blank"><img src="Images/water.jpg" alt="Positioning the water outlet at the top of the water fountain" style="max-width:100%;"></a></p>
+<p><em>Positioning the water outlet at the top of the water fountain</em></p>
+</li>
+<li>
+<p>Select the new game object and click <strong>Add Component</strong> in the Inspector panel. Then select <strong>Particle System</strong> from the <strong>Effects</strong> submenu.</p>
+<p><a href="Images/particles.jpg" target="_blank"><img src="Images/particles.jpg" alt="Adding the particle system" style="max-width:100%;"></a></p>
+<p><em>Adding the particle system</em></p>
+</li>
+<li>
+<p>In the settings for the particle system, make a few modifications:</p>
+<ul>
+<li>Set the <strong>Start Lifetime</strong> to <strong>2</strong> and the <strong>Start Speed</strong> to <strong>1.2</strong></li>
+<li>Set the <strong>Start Size</strong> to <strong>0.04</strong></li>
+<li>Enable <strong>Looping</strong> and <strong>Prewarm</strong></li>
+<li>Set the <strong>Gravity Modifier</strong> to <strong>0.8</strong></li>
+<li>Select a bluish or greenish tint for the <strong>Start Color</strong></li>
+<li>Set the <strong>Shape</strong> to <strong>Cone</strong>, the <strong>Radius</strong> to <strong>0.01</strong> and <strong>Angle</strong> to <strong>17.0</strong></li>
+<li>Set the <strong>Render Mode</strong> to <strong>Mesh</strong> and select <strong>Sphere</strong> as the type of <strong>Mesh</strong></li>
+<li>Choose a <strong>Material</strong> for the Renderer - <strong>Default-Material</strong> is a reasonable place to start</li>
+<li>Enable the <strong>Collision</strong> settings, and set the <strong>Collision Mode</strong> to <strong>3D</strong></li>
+<li>Change the <strong>Dampen</strong> setting to <strong>0.6</strong> and <strong>Bounce</strong> to <strong>0.7</strong></li>
+<li>Set <strong>Collides With</strong> to <strong>Everything</strong>, change <strong>Collision Quality</strong> to <strong>Medium</strong>, and reduce <strong>Voxel Size</strong> to <strong>0.25</strong></li>
+</ul>
+<blockquote>
+<p><strong>TIP:</strong> These are just suggestions — feel free to experiment with different settings!</p>
+</blockquote>
+<p><a href="Images/particle_settings.jpg" target="_blank"><img src="Images/particle_settings.jpg" alt="Particle Settings" style="max-width:100%;"></a></p>
+<p><em>Configuring the particle system</em></p>
+</li>
+<li>
+<p>Save the scene in Unity, export the project to Visual Studio, and return to the <strong>Fountain.cs</strong> file containing the script for the fountain.</p>
+</li>
+<li>
+<p>The final step is to obtain a reference to the particle system and call <code>Stop</code> or <code>Play</code> on it when the fountain is clicked. Furthermore, let's turn off the fountain in the <code>Start</code> method. Replace the current contents of <strong>Fountain.cs</strong> with the following code:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">System</span>;
+<span class="pl-k">using</span> <span class="pl-en">UnityEngine</span>;
+<span class="pl-k">using</span> <span class="pl-en">HoloToolkit.Unity.InputModule</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Fountain</span> : <span class="pl-en">MonoBehaviour</span>, <span class="pl-en">IInputClickHandler</span>
+{
+    <span class="pl-k">private </span><span class="pl-en">ParticleSystem</span> <span class="pl-en">particles</span>;
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">OnInputClicked</span>(<span class="pl-en">InputEventData</span> <span class="pl-smi">eventData</span>)
+    {
+        <span class="pl-k">var</span> <span class="pl-en">gaze </span>= InputManager.Instance.GetComponent&lt;GazeManager&gt;();
+        <span class="pl-k">if</span> (gaze.IsGazingAtObject &amp;&amp; gaze.HitObject == gameObject)
+        {
+            Debug.Log(gameObject.name + <span class="pl-s"><span class="pl-pds">"</span> clicked<span class="pl-pds">"</span></span>);
+            <span class="pl-k">if</span> (particles.isPlaying)
+            {
+                particles.Stop();
+            }
+            <span class="pl-k">else</span>
+            {
+                particles.Play();
+            }
+        }
+    }
+
+    <span class="pl-c">// Use this for initialization</span>
+    <span class="pl-k">void</span> <span class="pl-en">Start</span> ()
+    {
+        particles = gameObject.GetComponentInChildren&lt;ParticleSystem&gt;();
+        <span class="pl-k">if</span> (particles.isPlaying)
+        {
+            particles.Stop();
+        }
+    }
+
+    <span class="pl-c">// Update is called once per frame</span>
+    <span class="pl-k">void</span> <span class="pl-en">Update</span> ()
+    {
+    }
+}</pre></div>
+</li>
+<li>
+<p>Save, export to Visual Studio, and then build and run the application. Click the fountain and confirm that water spews from the top. Click it again to shut off the water.</p>
+<p><a href="Images/final.jpg" target="_blank"><img src="Images/final.jpg" alt="A virtual fountain in my foyer!" style="max-width:100%;"></a></p>
+<p><em>A virtual fountain in my foyer!</em></p>
+</li>
+</ol>
+<p>Of course, you can go much deeper with Unity and build much more complex scenes. This is a start, and it conveys the critical information you need to set up a project, deploy it to a HoloLens, and experience holographic applications first-hand. For more information, and to discover additional resources for learning Unity and Windows Holographic, refer to <a href="https://developer.microsoft.com/en-us/windows/holographic/unity_development_overview">https://developer.microsoft.com/en-us/windows/holographic/unity_development_overview</a>.</p>
+<p><a name="Summary"></a></p>
+<h2>Summary</h2>
+<p>In this hands-on lab you learned how to:</p>
+<ul>
+<li>Configure HoloLens for application development</li>
+<li>Install and configure a development environment for building holographic applications</li>
+<li>Create a Unity project and configure it to support Windows Holographic</li>
+<li>Add objects to a scene and attach scripts to make them interactive</li>
+<li>Deploy to a HoloLens and make the scene come alive</li>
+</ul>
+<p>Developing applications for the Windows Holographic platform is an exciting and rewarding endeavor. Holographic development can be daunting, especially for those who are new to 3D systems, but luckily, Unity features robust support for the platform and a diverse assortment of assets from which to compose scenes. Once you've mastered the basics of Unity itself, you will find it much easier to build immersive and interactive holographic applications.</p>
+<hr>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
